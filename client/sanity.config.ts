@@ -6,7 +6,7 @@ import {schemaTypes} from './schemas'
 export default defineConfig({
   name: 'default',
   title: 'Админ Панель - АП',
-  basePath: 'https://ap-community.sanity.studio',
+  basePath: 'https://proxima.netlify.app/studio/',
 
   projectId: 'dr4qv25t',
   dataset: 'production',
