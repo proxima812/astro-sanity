@@ -10,7 +10,7 @@ import sanity from "astro-sanity";
 
 // https://astro.build/config
 export default defineConfig({
- site: 'https://site.com',
+ site: 'https://proxima.netlify.app',
  integrations: [
   mdx(),
   sitemap(),
