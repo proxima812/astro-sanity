@@ -6,6 +6,7 @@ import {schemaTypes} from './schemas'
 export default defineConfig({
   name: 'default',
   title: 'Админ Панель - АП',
+  basePath: 'https://majestic-otter-783e1a.netlify.app/studio',
 
   projectId: 'dr4qv25t',
   dataset: 'production',
