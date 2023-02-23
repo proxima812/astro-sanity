@@ -6,7 +6,6 @@ import {schemaTypes} from './schemas'
 export default defineConfig({
   name: 'default',
   title: 'Админ Панель - АП',
-  basePath: 'https://ap-community.sanity.studio/desk',
 
   projectId: 'dr4qv25t',
   dataset: 'production',
