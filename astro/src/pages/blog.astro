@@ -1,0 +1,38 @@
+---
+import Main from "../layouts/Main.astro";
+
+import { blogGet } from "../libs/api";
+const blogPosts = await blogGet();
+---
+
+<Main title="Заметки людей" desc="Заметки людей и размышления процессов">
+ <div class="mt-[30px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[20px]">
+  {
+   blogPosts.map((post) => (
+    <div class="bg-white rounded-[20px] p-[20px]">
+     <a href={"/blog/" + post.slug.current}>
+      <h2 id="line-clamp" class="font-bold text-[#333] text-[18px] leading-[120%]">{post.title}</h2>
+     </a>
+     <time datetime={post.releaseDate} class="block mt-[4px] text-blue-500">
+      {new Date(post.releaseDate).toLocaleDateString("ru-RU", {
+       year: "numeric",
+       month: "numeric",
+       day: "numeric",
+      })}
+     </time>
+     <p id="line-clamp" class="text-[#777] mt-[4px] leading-[130%]">{post.excerpt}</p>
+    </div>
+   ))
+  }
+ </div>
+ <style>
+   #line-clamp {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* number of lines to show */
+  line-clamp: 2;
+  -webkit-box-orient: vertical;
+ }
+ </style>
+</Main>

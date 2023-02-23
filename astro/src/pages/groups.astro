@@ -1,0 +1,39 @@
+---
+import PortableText from "../components/PortableText.astro";
+import Main from "../layouts/Main.astro";
+
+import { groupsGet } from "../libs/api";
+const groupsSet = await groupsGet();
+---
+
+<Main title="Онлайн собрания АП" desc="Онлайн собрания Анонимных Прокрастинаторов">
+ <div class="mt-[30px]">
+  <div class="grid gap-[30px] grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+   {
+    groupsSet.map((item) => (
+     <div class="p-[10px] outline outline-[3px] outline-white rounded-[10px]">
+      <div class="p-[10px] flex items-center bg-white rounded-[10px] mb-[8px]">
+       <h3 class="font-bold text-[20px] mr-[10px]">{item.group_name}</h3>
+       <span class="text-blue-800 font-bold text-[18px]">{item.group_time}</span>
+      </div>
+      <div class="bg-white p-[10px] rounded-[10px]">
+       <PortableText portableText={item.body} />
+       <a
+        href={item.group_url}
+        class="text-blue-500 underline mt-[6px] font-normal inline-block"
+       >
+        Присоединиться
+       </a>
+      </div>
+     </div>
+    ))
+   }
+   <div class="h-[345px] flex justify-center items-center p-[10px] outline outline-[3px] outline-[#ddd] rounded-[10px]">
+      <div class="flex flex-col px-[20px]">
+        <span class="text-[18px] text-[#777]">Хочешь создать свою группу?</span>
+        <a href="https://t.me/ap12steps_community" class="text-blue-500 underline mt-[2px] font-normal">Напиши нам!</a>
+      </div>
+   </div>
+  </div>
+ </div>
+</Main>

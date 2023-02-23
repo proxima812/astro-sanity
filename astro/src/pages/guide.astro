@@ -1,0 +1,16 @@
+---
+import Main from "../layouts/Main.astro";
+import Post from '../components/Post.astro';
+import { listPosts } from "../libs/api";
+const postGet = await listPosts();
+---
+
+<Main title="Руководства на пути к изменениям" desc="Руководства на пути к изменениям. Инструкции и истории">
+<div class="mt-[30px] grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[20px]">
+   {
+    postGet.map((post) => (
+     <Post post={post}></Post>
+    ))
+   }
+</div>
+</Main>

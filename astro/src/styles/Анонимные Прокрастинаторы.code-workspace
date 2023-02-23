@@ -1,0 +1,13 @@
+{
+ "folders": [
+  {
+   "path": "../../.."
+  },
+  {
+   "path": "../../../../Проекты/interstellar-iron"
+  }
+ ],
+ "settings": {
+  "liveServer.settings.multiRootWorkspaceName": "Анонимные Прокрастинаторы"
+ }
+}

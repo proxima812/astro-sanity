@@ -1,0 +1,75 @@
+---
+import { EMAIL, NAME_SITE, TELEGRAM, TELEGRAM_ME, TWITTER, VK } from "../consts";
+
+import { listPosts } from "../libs/api";
+const posts = await listPosts();
+
+import logo from "/logo.svg";
+const footer_link = "font-normal text-[16px] mt-[10px] hover:text-[#666]";
+const copyright_link =
+ "font-normal mr-[20px] last:mr-[0px] underline text-[16px] text-blue-700 hover:text-blue-900";
+---
+
+<footer class="mt-[auto] pt-[80px]">
+ <div class="bg-[#FBFBFF] py-[30px] rounded-t-[40px]">
+  <div class="container mx-auto px-[20px]">
+   <div
+    class="grid gap-[20px] lg:gap-[60px] grid-cols-1 md:grid-cols-[1fr,2fr] mb-[20px]"
+   >
+    <!---  grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 -->
+    <div class="flex flex-col">
+     <div class="flex items-center">
+      <img src={logo} alt="Логотип АП" class="mr-[20px]" />
+      <span class="text-[14px] leading-[110%] max-w-[230px]">
+       Мы не ассоциируется с проблемой, мы ищем - решения!</span
+      >
+     </div>
+    </div>
+    <div
+     class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-[20px] lg:items-start lg:justify-items-end"
+    >
+     <div class="flex flex-col">
+      <span class="text-[18px] font-bold">Статьи</span>
+      {
+       posts.map((item) => (
+        <a class={footer_link} href={"/guide/" + item.slug.current}>
+         {item.title}
+        </a>
+       ))
+      }
+     </div>
+     <div class="flex flex-col">
+      <span class="text-[18px] font-bold">Страницы</span>
+      <a href="/" class={footer_link}>Главная</a>
+      <a href="/about" class={footer_link}>О нас</a>
+      <a href="/groups" class={footer_link}>Собрания</a>
+      <a href="/questions" class={footer_link}>Вопросы&Ответы</a>
+      <a href="/guide" class={footer_link}>Руководства</a>
+      <a href="/blog" class={footer_link}>Заметки</a>
+      <a href="/devs/" class={footer_link}>Разработчикам</a>
+     </div>
+     <div class="flex flex-col">
+      <span class="text-[18px] font-bold">Соц. сети</span>
+      <a href={TELEGRAM} class={footer_link} target="_blank">Telegram АП</a>
+      <a href={VK} class={footer_link} target="_blank">ВКонтакте АП</a>
+      <a href={TWITTER} class={footer_link} target="_blank">Twitter АП</a>
+      <!-- <a href={YOUTUBE} class={footer_link}></a> -->
+     </div>
+    </div>
+   </div>
+   <div
+    class="pt-[20px] flex flex-wrap gap-[20px] lg:gap-[0px] items-center justify-between border-solid border-t-[1px] border-[#DBDBEF]"
+   >
+    <p class="font-medium" translate="no">© <span id="year"></span> {NAME_SITE}</p>
+    <div>
+     <a href={TELEGRAM_ME} class={copyright_link} target="_blank">Связься c нами</a>
+     <a href={"mailto:" + `${EMAIL}` + "?subject"} class={copyright_link} target="_blank">{EMAIL}</a>
+    </div>
+   </div>
+  </div>
+ </div>
+
+ <script lang="js">
+  document.getElementById("year").innerHTML = new Date().getFullYear();
+ </script>
+</footer>

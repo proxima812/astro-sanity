@@ -1,0 +1,46 @@
+---
+import { AUTHOR, TITLE_SITE } from '../consts';
+
+const { title, permalink, publishDate, ogImageUrl, description } = Astro.props;
+const ldData = {
+  "@context": "https://schema.org",
+  "@type": "Article",
+  "publisher": {
+    "@type": "Organization",
+    "name": `${TITLE_SITE || title} Blog`,
+    "url": `${Astro.site}/blog/`,
+  },
+  "author": {
+    "@type": "Person",
+    "name": `${AUTHOR}`,
+    "image": {
+      "@type": "ImageObject",
+      "url": `${Astro.site}/assets/favicons/icon-512.png`,
+      "width": 512,
+      "height": 512
+    },
+    "url": `${Astro.site + 'author'}`,
+    "sameAs": [
+      `${Astro.site}`,
+      // `${settings.facebookURL}`,
+      // `${settings.twitterURL}`,
+      // `${settings.instagramURL}`
+    ]
+  },
+  "headline": `${title}`,
+  "url": `${permalink}`,
+  "datePublished": `${publishDate}`,
+  "image": {
+    "@type": "ImageObject",
+    "url": `${ogImageUrl}`,
+    "width": 1200,
+  },
+  "description": `${description}`,
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": `${Astro.site}/blog/`
+  }
+}
+---
+
+<script type="application/ld+json" set:html={JSON.stringify(ldData)} />

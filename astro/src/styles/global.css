@@ -1,0 +1,241 @@
+/*
+Значения отступов 
+стандартизированы в дизайн-системе. 
+Это не целые числа от 0 до бесконечности, 
+а числа с определённым шагом: 
+2, 4, 6, 8, 10, 12, 16, 20, 24, … 48, 56, 64.
+*/
+
+:root {
+ --link: #2661f9;
+ --color: #090414;
+ --margin-bottom-for-text: 14px;
+ --content-width: 940px;
+}
+
+*,
+*:after,
+*:before {
+ padding: 0;
+ margin: 0;
+ border: 0;
+ box-sizing: border-box;
+}
+
+a {
+ text-decoration: none;
+ user-select: none;
+}
+ul:where(body),
+ol:where(body),
+li:where(body) {
+ list-style: none;
+}
+
+img {
+ vertical-align: top;
+}
+
+p {
+ hyphens: auto;
+}
+u {
+ text-decoration-skip: auto;
+}
+
+q {
+ quotes: "«" "»";
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+ font-weight: inherit;
+ font-size: inherit;
+}
+
+@font-face {
+ font-family: "Onest";
+ src: url("/fonts/Onest-Regular.woff2") format("woff2");
+ font-weight: 400;
+ font-style: normal;
+ font-display: swap;
+}
+@font-face {
+ font-family: "Onest";
+ src: url("/fonts/Onest-Medium.woff2") format("woff2");
+ font-weight: 500;
+ font-style: normal;
+ font-display: swap;
+}
+@font-face {
+ font-family: "Onest";
+ src: url("/fonts/Onest-ExtraBold.woff2") format("woff2");
+ font-weight: 600;
+ font-style: normal;
+ font-display: swap;
+}
+@font-face {
+ font-family: "Onest";
+ src: url("/fonts/Onest-Bold.woff2") format("woff2");
+ font-weight: 700;
+ font-style: normal;
+ font-display: swap;
+}
+@font-face {
+ font-family: "Onest";
+ src: url("/fonts/Onest-Black.woff2") format("woff2");
+ font-weight: 800;
+ font-style: normal;
+ font-display: swap;
+}
+
+html,
+body {
+ min-width: 320px;
+ font-family: "Onest", sans-serif;
+ color: var(--color);
+ font-size: 16px;
+ font-weight: 400;
+ background-color: #f7f7f7;
+}
+
+.AP {
+ background: linear-gradient(180deg, #240b58 0%, #070414 100%);
+ color: transparent;
+ -webkit-background-clip: text;
+ background-clip: text;
+}
+
+._main {
+ min-height: 100vh;
+ display: flex;
+ flex-direction: column;
+}
+
+.aside {
+ display: inline-flex;
+ align-items: center;
+ gap: 8px;
+ padding: 8px;
+ background: #fff;
+ border-radius: 6px;
+}
+.aside a {
+ margin-bottom: 0 !important;
+}
+
+/* TODO -----Для контента внутри поста----- */
+._content-width {
+ margin-top: 30px;
+ margin-left: auto;
+ margin-right: auto;
+ max-width: var(--content-width);
+}
+._content {
+ position: relative;
+ /* padding: 30px;
+ background-color: #fff;
+ border-radius: 30px; */
+}
+
+._content h1,
+._content h2,
+._content h3,
+._content h4,
+._content p,
+._content a,
+._content ul,
+._content ol,
+._content blockquote {
+ margin-bottom: var(--margin-bottom-for-text);
+ position: relative;
+}
+/* ._content h1{
+  padding-left: 14px;
+}
+._content h1:before{
+  content: '';
+  border-radius: 10px;
+  background: #666666;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 5px;
+  height: 100%;
+} */
+/* ._content a {
+ font-weight: 500;
+ color: #fff;
+ display: inline-block;
+ padding: 4px 12px;
+ border-radius: 10px;
+ background-color: #5cb75c;
+}
+._content a:hover {
+ background-color: #37a337;
+} */
+._content ul li,
+._content ol li {
+ margin-bottom: 8px;
+}
+._content p a,
+._content ul li a,
+._content ol li a {
+ text-decoration: underline;
+ color: #2424df;
+ padding: 0;
+ background-color: transparent;
+ margin-bottom: 0;
+}
+._content p a:hover,
+._content ul li a:hover,
+._content ol li a:hover {
+ color: #6714ba;
+ background-color: transparent;
+}
+._content ul {
+ list-style-type: disc;
+ list-style-position: inside;
+}
+._content ol {
+ list-style-type: decimal;
+ list-style-position: inside;
+}
+._content h1,
+._content h2,
+._content h3,
+._content h4 {
+ font-weight: 700;
+ color: var(--color);
+ line-height: 120%;
+}
+._content h1 {
+ font-size: 32px;
+}
+._content h2 {
+ font-size: 26px;
+}
+._content h3 {
+ font-size: 24px;
+}
+._content h4 {
+ font-size: 20px;
+}
+._content blockquote {
+ position: relative;
+ display: block;
+ padding-left: 12px;
+}
+._content blockquote::before {
+ content: "";
+ position: absolute;
+ left: 0;
+ top: -4px;
+ bottom: -4px;
+ width: 3px;
+ background: #a384e1;
+}
