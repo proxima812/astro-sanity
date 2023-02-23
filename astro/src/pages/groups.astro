@@ -8,7 +8,7 @@ const groupsSet = await groupsGet();
 
 <Main title="Онлайн собрания АП" desc="Онлайн собрания Анонимных Прокрастинаторов">
  <div class="mt-[30px]">
-  <div class="grid gap-[30px] grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
+  <div class="grid items-start gap-[30px] grid-cols-1 md:grid-cols-2 lg:grid-cols-3">
    {
     groupsSet.map((item) => (
      <div class="p-[10px] outline outline-[3px] outline-white rounded-[10px]">
