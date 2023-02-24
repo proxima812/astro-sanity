@@ -51,7 +51,7 @@ export async function groupsGet() {
       group_time,
       body,
       group_url,
-    } | order(releaseYear asc)
+    }
  `;
  const groups = await useSanityClient().fetch(query);
  return groups;
